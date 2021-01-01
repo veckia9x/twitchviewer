@@ -1,16 +1,16 @@
 {
-  "name": "valorant-watcher",
-  "version": "2.0.4",
+  "name": "twitchviewer - Veckia Mod",
+  "version": "2.0.5",
   "description": "Automatic watching the twitch to get valorant drop",
   "main": "app.js",
   "scripts": {
     "start": "node app"
   },
-  "author": "D3v <info@zsmark.dev>",
+  "author": "D3v <info@zsmark.dev> - MOD by Veckia <veckiadrop@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/D3vl0per/Valorant-watcher"
+    "url": "https://github.com/veckia9x/twitchviewer"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
