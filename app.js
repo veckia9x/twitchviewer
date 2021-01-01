@@ -309,13 +309,14 @@ async function shutDown() {
 async function main() {
   console.clear();
   console.log("=========================");
+  console.log("======MOD By Veckia======");
+  console.log("=========================");
   cookie = await readLoginData();
   var {
     browser,
     page
   } = await spawnBrowser();
   console.log("=========================");
-  console.log("MOD By Veckia");
   console.log('🔭 Running watcher...');
   await viewRandomPage(browser, page);
 };
