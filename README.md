@@ -27,7 +27,7 @@
  
 ## Installation
 Althought the tutorial steps are almost the same, there are differences.
-🎥 [Tutorial video by Ziyad](https://youtu.be/bwzv7wT44Ds) 🎥
+🎥 [Tutorial video by Ziyad](https://youtu.be/bwzv7wT44Ds), ytb link is dead. 🎥
 ### Windows
 1. Login to your twitch account
 2. Open inspector(F12 or Ctrl+Shift+I) on main site
