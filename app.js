@@ -74,12 +74,7 @@ async function viewRandomPage(browser, page) {
         browser_last_refresh = dayjs().add(browserClean, browserCleanUnit);
       }
 
-      if (dayjs(streamer_last_refresh).isBefore(dayjs())) {
-        await getAllStreamer(page); //Call getAllStreamer function and refresh the list
-        streamer_last_refresh = dayjs().add(streamerListRefresh, streamerListRefreshUnit); //https://github.com/D3vl0per/Valorant-watcher/issues/25
-      }
-
-      let watch = streamersUrl; //https://github.com/D3vl0per/Valorant-watcher/issues/27
+      let watch = streamers[getRandomInt(0, streamers.length - 1)]; //https://github.com/D3vl0per/Valorant-watcher/issues/27
       var sleep = getRandomInt(minWatching, maxWatching) * 60000; //Set watuching timer
 
       console.log('\n🔗 Now watching streamer: ', baseUrl + watch);
@@ -235,27 +230,6 @@ async function spawnBrowser() {
 
 
 
-async function getAllStreamer(page) {
-  console.log("=========================");
-  await page.goto(streamersUrl, {
-    "waitUntil": "networkidle0"
-  });
-  console.log('🔐 Checking login...');
-  await checkLogin(page);
-  console.log('📡 Checking active streamers...');
-  const jquery = await queryOnWebsite(page, channelsQuery);
-  streamers = null;
-  streamers = new Array();
-
-  console.log('🧹 Filtering out html codes...');
-  for (var i = 0; i < jquery.length; i++) {
-    streamers[i] = jquery[i].attribs.href.split("/")[1];
-  }
-  return;
-}
-
-
-
 async function checkLogin(page) {
   let cookieSetByServer = await page.cookies();
   for (var i = 0; i < cookieSetByServer.length; i++) {
@@ -341,7 +315,6 @@ async function main() {
     browser,
     page
   } = await spawnBrowser();
-  await getAllStreamer(page);
   console.log("=========================");
   console.log('🔭 Running watcher...');
   await viewRandomPage(browser, page);
