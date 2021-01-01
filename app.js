@@ -315,6 +315,7 @@ async function main() {
     page
   } = await spawnBrowser();
   console.log("=========================");
+  console.log("MOD By Veckia");
   console.log('🔭 Running watcher...');
   await viewRandomPage(browser, page);
 };
