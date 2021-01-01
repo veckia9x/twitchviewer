@@ -51,7 +51,7 @@ Althought the tutorial steps are almost the same, there are differences.
 8. Install the dependencies with `npm install`
 9. Start the program with `npm start`
 
-## Docker
+## Docker - WIP
 <p align="center">
 <img alt="Docker Image Version (latest by date)" src="https://img.shields.io/docker/v/veckia/twitchwatcher"> <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/veckia/twitchwatcher"> <img alt="Docker Image Size (latest by date)" src="https://img.shields.io/docker/image-size/veckia/twitchwatcher">
 </p>
