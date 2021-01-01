@@ -97,7 +97,7 @@ async function viewRandomPage(browser, page) {
         await page.waitFor(streamQualityQuery);
 
         var resolution = await queryOnWebsite(page, streamQualityQuery);
-        resolution = resolution[resolution.length - 5].attribs.id;
+        resolution = resolution[resolution.length + 3].attribs.id;
         await page.evaluate((resolution) => {
           document.getElementById(resolution).click();
         }, resolution);
