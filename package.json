@@ -6,11 +6,11 @@
   "scripts": {
     "start": "node app"
   },
-  "author": "D3v <info@zsmark.dev> - MOD by Veckia <veckiadrop@gmail.com>",
+  "author": "D3v <info@zsmark.dev>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/veckia9x/twitchviewer"
+    "url": "https://github.com/D3vl0per/Valorant-watcher"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
