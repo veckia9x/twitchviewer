@@ -1,8 +1,8 @@
 
 
 
-<h1 align="center">twitch viewer</h1>
-<p align="center"> I spent two days watching Valorant streams to get a drop. I got bored...</p>
+<h1 align="center">twitchviewer</h1>
+<p align="center"> I was trying to get some points, thats it... found [original work](https://github.com/D3vl0per/Twitch-watcher) and decided to mod.</p>
 <p align="center">
 <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/D3vl0per/Valorant-watcher"> <img alt="GitHub" src="https://img.shields.io/github/repo-size/D3vl0per/Valorant-watcher"> <img alt="GitHub repo size" src="https://img.shields.io/github/license/D3vl0per/Valorant-watcher"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/D3vl0per/Valorant-watcher"> <a href="https://asciinema.org/a/rob4Rh1EG4XFVfN4XWK67JSnf" target="_blank"><img src="https://asciinema.org/a/rob4Rh1EG4XFVfN4XWK67JSnf.svg" /></a>
 </p>
@@ -11,15 +11,13 @@
 - 🎥 True HTTP Live Streaming support (Forget the #4000 error code)
 - 🔐 Cookie-based login
 - 📜 Auto accept cookie policy
-- 👨‍💻 The choice of a random streamer with drop-enabled tag
+- 👨‍💻 The choice of a streamer at your hands
 - 🤐 Unmuted stream
 - 🛠 Detect mature content-based stream and interact with it
 - 🛡 Proxy option
 - 📽 Automatic lowest possible resolution settings
 - 🧰 Highly customizable codebase
 - 📦 Deployable to VPS by docker
-- 🏳️ Helpful support community
-- 💬 Multi language readme: [🇫🇷 README](https://github.com/D3vl0per/Valorant-watcher/blob/languages/README_FR.md) [🇧🇷 README](https://github.com/D3vl0per/Valorant-watcher/blob/languages/README_PT.md) [🇷🇺 README](https://github.com/D3vl0per/Valorant-watcher/blob/languages/README_RU.md) [🇸🇰 README](https://github.com/D3vl0per/Valorant-watcher/blob/languages/README_SK.md)
 
 ## Requirements
 
@@ -28,6 +26,7 @@
  - [Nodejs](https://nodejs.org/en/download/) and [NPM](https://www.npmjs.com/get-npm)
  
 ## Installation
+Althought the tutorial steps are almost the same, there are differences.
 🎥 [Tutorial video by Ziyad](https://youtu.be/bwzv7wT44Ds) 🎥
 ### Windows
 1. Login to your twitch account
@@ -52,7 +51,7 @@
 
 ## Docker
 <p align="center">
-<img alt="Docker Image Version (latest by date)" src="https://img.shields.io/docker/v/d3vm/valorant-watcher"> <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/d3vm/valorant-watcher"> <img alt="Docker Image Size (latest by date)" src="https://img.shields.io/docker/image-size/d3vm/valorant-watcher">
+<img alt="Docker Image Version (latest by date)" src="https://img.shields.io/docker/v/veckia/twitchwatcher"> <img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/veckia/twitchwatcher"> <img alt="Docker Image Size (latest by date)" src="https://img.shields.io/docker/image-size/veckia/twitchwatcher">
 </p>
 
 
@@ -118,14 +117,13 @@ const browserScreenshot = false;
 ## Donation
 Please donate to keep alive this project!
 
-Especially the drop farmers who gather tons of money with this software!🤓  
+Especially the farmers who gather tons of money with this software!🤓  
 
 <a href="https://www.buymeacoffee.com/D3v" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
 
 
 ## Support
- - Keybase at [https://keybase.io/d3v_](https://keybase.io/d3v_)
- - Discord at [https://discord.gg/s8AH4aZ](https://discord.gg/s8AH4aZ)
+ - Sorry, at the moment no support is available for this mod, please check the [original work](https://github.com/D3vl0per/Twitch-watcher).
 
 ## Disclaimer
 This code is for educational and research purposes only.

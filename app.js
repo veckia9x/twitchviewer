@@ -79,7 +79,7 @@ async function viewRandomPage(browser, page) {
         streamer_last_refresh = dayjs().add(streamerListRefresh, streamerListRefreshUnit); //https://github.com/D3vl0per/Valorant-watcher/issues/25
       }
 
-      let watch = streamers[getRandomInt(0, streamers.length - 1)]; //https://github.com/D3vl0per/Valorant-watcher/issues/27
+      let watch = streamersUrl; //https://github.com/D3vl0per/Valorant-watcher/issues/27
       var sleep = getRandomInt(minWatching, maxWatching) * 60000; //Set watuching timer
 
       console.log('\n🔗 Now watching streamer: ', baseUrl + watch);
@@ -243,7 +243,6 @@ async function getAllStreamer(page) {
   console.log('🔐 Checking login...');
   await checkLogin(page);
   console.log('📡 Checking active streamers...');
-  await scroll(page, scrollTimes);
   const jquery = await queryOnWebsite(page, channelsQuery);
   streamers = null;
   streamers = new Array();
@@ -272,21 +271,6 @@ async function checkLogin(page) {
     fs.unlinkSync(configPath);
   }
   process.exit();
-}
-
-
-
-async function scroll(page, times) {
-  console.log('🔨 Emulating scrolling...');
-
-  for (var i = 0; i < times; i++) {
-    await page.evaluate(async (page) => {
-      var x = document.getElementsByClassName("scrollable-trigger__wrapper");
-      x[0].scrollIntoView();
-    });
-    await page.waitFor(scrollDelay);
-  }
-  return;
 }
 
 
