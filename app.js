@@ -61,6 +61,85 @@ const streamQualityQuery = 'input[data-a-target="tw-radio"]';
 
 
 
+async function viewRandomPage(browser, page) {
+  var streamer_last_refresh = dayjs().add(streamerListRefresh, streamerListRefreshUnit);
+  var browser_last_refresh = dayjs().add(browserClean, browserCleanUnit);
+  while (run) {
+    try {
+      if (dayjs(browser_last_refresh).isBefore(dayjs())) {
+        var newSpawn = await cleanup(browser, page);
+        browser = newSpawn.browser;
+        page = newSpawn.page;
+        firstRun = true;
+        browser_last_refresh = dayjs().add(browserClean, browserCleanUnit);
+      }
+
+      let watch = streamersUrl; //https://github.com/D3vl0per/Valorant-watcher/issues/27
+      var sleep = getRandomInt(minWatching, maxWatching) * 60000; //Set watuching timer
+
+      console.log('\n🔗 Now watching streamer: ', baseUrl + watch);
+
+      await page.goto(baseUrl + watch, {
+        "waitUntil": "networkidle0"
+      }); //https://github.com/puppeteer/puppeteer/blob/master/docs/api.md#pagegobackoptions
+
+      await clickWhenExist(page, cookiePolicyQuery);
+      await clickWhenExist(page, matureContentQuery); //Click on accept button
+
+      if (firstRun) {
+        console.log('🔧 Setting lowest possible resolution..');
+        await clickWhenExist(page, streamPauseQuery);
+
+        await clickWhenExist(page, streamSettingsQuery);
+        await page.waitFor(streamQualitySettingQuery);
+
+        await clickWhenExist(page, streamQualitySettingQuery);
+        await page.waitFor(streamQualityQuery);
+
+        var resolution = await queryOnWebsite(page, streamQualityQuery);
+        resolution = resolution[resolution.length - 1].attribs.id;
+        await page.evaluate((resolution) => {
+          document.getElementById(resolution).click();
+        }, resolution);
+
+        await clickWhenExist(page, streamPauseQuery);
+
+        await page.keyboard.press('m'); //For unmute
+        firstRun = false;
+      }
+
+
+      if (browserScreenshot) {
+        await page.waitFor(1000);
+        fs.access(screenshotFolder, error => {
+          if (error) {
+            fs.promises.mkdir(screenshotFolder);
+          }
+        });
+        await page.screenshot({
+          path: `${screenshotFolder}${watch}.png`
+        });
+        console.log('📸 Screenshot created: ' + `${watch}.png`);
+      }
+
+      await clickWhenExist(page, sidebarQuery); //Open sidebar
+      await page.waitFor(userStatusQuery); //Waiting for sidebar
+      let status = await queryOnWebsite(page, userStatusQuery); //status jQuery
+      await clickWhenExist(page, sidebarQuery); //Close sidebar
+
+      console.log('💡 Account status:', status[0] ? status[0].children[0].data : "Unknown");
+      console.log('🕒 Time: ' + dayjs().format('HH:mm:ss'));
+      console.log('💤 Watching stream for ' + sleep / 60000 + ' minutes\n');
+
+      await page.waitFor(sleep);
+    } catch (e) {
+      console.log('🤬 Error: ', e);
+      console.log('Please visit the discord channel to receive help: https://discord.gg/s8AH4aZ');
+    }
+  }
+}
+
+
 
 async function readLoginData() {
   const cookie = [{
@@ -237,6 +316,7 @@ async function main() {
   } = await spawnBrowser();
   console.log("=========================");
   console.log('🔭 Running watcher...');
+  await viewRandomPage(browser, page);
 };
 
 main();
