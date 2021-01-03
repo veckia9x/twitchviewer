@@ -3,6 +3,7 @@
 
 <h1 align="center">twitchviewer</h1>
 
+- It's working but not actually, skip. 
 - I was trying to get some points, thats it... found [original work](https://github.com/D3vl0per/Twitch-watcher) and decided to mod. 
 
 <p align="center">
